@@ -16,15 +16,12 @@ Use the buttons below to know more about me.""",
             [
                 [
                     InlineKeyboardButton(
-                        "⚒ Source code", url="https://t.me/SuMusicPlayer"
+                        "⚡️Owner⚡️", url="https://t.me/DetectiveVI"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "💬 Group", url="https://t.me/su_Chats"
-                    ),
-                    InlineKeyboardButton(
-                        "Channel 🔈", url="https://t.me/su_Bots"
+                        "Assistant", url="https://t.me/VCPlayAssistant"
                     )
                 ]
             ]
