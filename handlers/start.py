@@ -5,7 +5,7 @@ from helpers.filters import command, other_filters, other_filters2
 
 
 @Client.on_message(command("start") & other_filters)
-async def start(_, message: Message):
+async def start2(_, message: Message):
     await message.reply_text(
         f"""<b>👋🏻 Hi {message.from_user.first_name}!</b>
 
@@ -30,7 +30,7 @@ Use the buttons below to know more about me.""",
 
 
 @Client.on_message(command(["start", "start@VCPlay_Robot"]) & other_filters2)
-async def start2(_, message: Message):
+async def start(_, message: Message):
     await message.reply_text(
         "💁🏻‍♂️ Do you want to search for a YouTube video?",
         reply_markup=InlineKeyboardMarkup(
