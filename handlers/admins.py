@@ -12,7 +12,7 @@ from helpers.filters import command
 from helpers.wrappers import errors, admins_only
 
 
-@Client.on_message(command(["pause", "p"]))
+@Client.on_message(command(["pause", "pause@VCPlay_Robot"]))
 @errors
 @admins_only
 async def pause(_, message: Message):
@@ -27,7 +27,7 @@ async def pause(_, message: Message):
         await message.reply_text("⏸ Paused.")
 
 
-@Client.on_message(command(["resume", "r"]))
+@Client.on_message(command(["resume", "resume@VCPlay_Robot"]))
 @errors
 @admins_only
 async def resume(_, message: Message):
@@ -42,7 +42,7 @@ async def resume(_, message: Message):
         await message.reply_text("▶️ Resumed.")
 
 
-@Client.on_message(command(["stop", "s"]))
+@Client.on_message(command(["end", "end@VCPlay_Robot"]))
 @errors
 @admins_only
 async def stop(_, message: Message):
@@ -55,15 +55,15 @@ async def stop(_, message: Message):
             pass
 
         callsmusic.pytgcalls.leave_group_call(message.chat.id)
-        await message.reply_text("⏹ Stopped streaming.")
+        await message.reply_text("⏹ Ended streaming.")
 
 
-@Client.on_message(command(["skip", "f"]))
+@Client.on_message(command(["next", "next@VCPlay_Robot"]))
 @errors
 @admins_only
 async def skip(_, message: Message):
     if message.chat.id not in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("❕ Nothing is playing to skip.")
+        await message.reply_text("❕ Nothing is playing to skip to next song.")
     else:
         queues.task_done(message.chat.id)
 
@@ -72,10 +72,10 @@ async def skip(_, message: Message):
         else:
             callsmusic.pytgcalls.change_stream(message.chat.id, queues.get(message.chat.id)["file_path"])
 
-        await message.reply_text("⏩ Skipped the current song.")
+        await message.reply_text("⏩ Playing next the current song.")
 
 
-@Client.on_message(command("admincache"))
+@Client.on_message(command(["admincache", "admincache@VCPlay_Robot"]))
 @errors
 @admins_only
 async def admincache(_, message: Message):
