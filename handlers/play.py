@@ -15,12 +15,12 @@ from helpers.filters import command, other_filters
 from helpers.wrappers import errors
 
 
-@Client.on_message(command("play") & other_filters)
+@Client.on_message(command(["play", "play@VCPlay_Robot"]) & other_filters)
 @errors
 async def play(_, message: Message):
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
 
-    res = await message.reply_text("🔄 Processing...")
+    res = await message.reply_text("😴 Processing...")
 
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
@@ -56,7 +56,7 @@ async def play(_, message: Message):
                         break
 
         if offset in (None,):
-            await res.edit_text("❕ You did not give me anything to play.")
+            await res.edit_text("Give me a youtube link nub😒")
             return
 
         url = text[offset:offset + length]
@@ -65,7 +65,7 @@ async def play(_, message: Message):
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = queues.add(message.chat.id, file_path)
-        await res.edit_text(f"#️⃣ Queued at position {position}.")
+        await res.edit_text(f"🔥 Queued at position {position}.")
     else:
-        await res.edit_text("▶️ Playing...")
+        await res.edit_text("🥳 Playing...")
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path, 48000, callsmusic.pytgcalls.get_cache_peer())
