@@ -9,9 +9,9 @@ async def start(_, message: Message):
     await message.reply_text(
         f"""<b>👋🏻 Hi {message.from_user.first_name}!</b>
 
-I am @VCPlay_Robot, a bot that lets you play music in your Telegram groups.
+I am SU Music Player, an open-source bot that lets you play music in your Telegram groups.
 
-Use the buttons below to know more about me."",
+Use the buttons below to know more about me.""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -29,7 +29,7 @@ Use the buttons below to know more about me."",
     )
 
 
-@Client.on_message(command("start") & other_filters)
+@Client.on_message(command(["start", "start@VCPlay_Robot"]) & other_filters)
 async def start2(_, message: Message):
     await message.reply_text(
         "💁🏻‍♂️ Do you want to search for a YouTube video?",
