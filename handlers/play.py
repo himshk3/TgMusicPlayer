@@ -1,4 +1,4 @@
-from os import path
+  from os import path
 
 from pyrogram import Client
 from pyrogram.types import Message, Voice
@@ -14,13 +14,16 @@ from helpers.errors import DurationLimitError
 from helpers.filters import command, other_filters
 from helpers.wrappers import errors
 
-
-@Client.on_message(command(["play", "play@VCPlay_Robot"]) & other_filters)
+@Client.on_message(
+    filters.command(["play", "play@VCPlay_Robot"])
+    & filters.group
+    & ~ filters.edited
+)
 @errors
-async def play(_, message: Message):
-    audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
+async def play(client: Client, message_: Message):
+    audio = (message_.reply_to_message.audio or message_.reply_to_message.voice) if message_.reply_to_message else None
 
-    res = await message.reply_text("😴 Processing...")
+    res = await message_.reply_text("😴 Processing...")
 
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
@@ -28,44 +31,46 @@ async def play(_, message: Message):
                 f"Videos longer than {DURATION_LIMIT} minute(s) aren't allowed, the provided video is {audio.duration / 60} minute(s)"
             )
 
-        file_name = audio.file_unique_id + "." + (
-            audio.file_name.split(".")[-1] if not isinstance(audio, Voice) else "ogg"
-        )
-        file_path = await converter.convert(
-            (await message.reply_to_message.download(file_name))
-            if not path.isfile(path.join("downloads", file_name)) else file_name
-        )
+        file_name = audio.file_id + audio.file_name.split(".")[-1]
+        file_path = await convert(await message_.reply_to_message.download(file_name))
     else:
-        messages = [message]
+        messages = [message_]
         text = ""
         offset = None
         length = None
 
-        if message.reply_to_message:
-            messages.append(message.reply_to_message)
+        if message_.reply_to_message:
+            messages.append(message_.reply_to_message)
 
-        for _message in messages:
+        for message in messages:
             if offset:
                 break
 
-            if _message.entities:
-                for entity in _message.entities:
+            if message.entities:
+                for entity in message.entities:
                     if entity.type == "url":
-                        text = _message.text or _message.caption
+                        text = message.text or message.caption
                         offset, length = entity.offset, entity.length
                         break
 
-        if offset in (None,):
+        if offset == None:
             await res.edit_text("Give me a youtube link nub😒")
             return
 
-        url = text[offset:offset + length]
+        url = text[offset:offset+length]
 
-        file_path = await converter.convert(youtube.download(url))
+        file_path = await convert(download(url))
 
-    if message.chat.id in callsmusic.pytgcalls.active_calls:
-        position = queues.add(message.chat.id, file_path)
-        await res.edit_text(f"🔥 Queued at position {position}.")
-    else:
+    try:
+        is_playing = False
+    except:
+        is_playing = True
+
+    if is_playing == False:
         await res.edit_text("🥳 Playing...")
-        callsmusic.pytgcalls.join_group_call(message.chat.id, file_path, 48000, callsmusic.pytgcalls.get_cache_peer())
+        tgcalls.pytgcalls.join_group_call(message_.chat.id, file_path, 48000)
+        mystryque = None
+
+    if mystryque is None:
+        position = await sira.add(message_.chat.id, file_path)
+        await res.edit_text(f"🔥 Song is postioned at {position}th.")
