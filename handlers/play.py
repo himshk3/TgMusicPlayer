@@ -1,4 +1,4 @@
-  from os import path
+from os import path
 
 from pyrogram import Client
 from pyrogram.types import Message, Voice
