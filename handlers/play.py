@@ -15,7 +15,7 @@ from helpers.filters import command, other_filters
 from helpers.wrappers import errors
 
 @Client.on_message(
-    filters.command(["play", "play@VCPlay_Robot"])
+    filters.command("play")
     & filters.group
     & ~ filters.edited
 )
