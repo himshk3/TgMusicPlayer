@@ -1,6 +1,3 @@
-"""
-Written by @pokurt.
-"""
 from pyrogram import Client, errors
 from pyrogram.types import InlineQuery, InlineQueryResultArticle, InputTextMessageContent
 
@@ -32,7 +29,7 @@ async def inline(client: Client, query: InlineQuery):
                         result["viewCount"]["short"]
                     ),
                     input_message_content=InputTextMessageContent(
-                        "https://www.youtube.com/watch?v={}".format(
+                        "/play https://www.youtube.com/watch?v={}".format(
                             result["id"]
                         )
                     ),
