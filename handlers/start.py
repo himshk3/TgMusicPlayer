@@ -28,7 +28,7 @@ Use the buttons below to know more about me.""",
 
 
 @Client.on_message(command(["start", "start@VCPlay_Robot"]) & other_filters)
-async def start2(_, message: Message):
+async def start_(_, message: Message):
     await message.reply_text(
         "💁🏻‍♂️ Do you want to search for a YouTube video?",
         reply_markup=InlineKeyboardMarkup(
@@ -38,7 +38,7 @@ async def start2(_, message: Message):
                         "✅ Yes", switch_inline_query_current_chat=""
                     ),
                     InlineKeyboardButton(
-                        "No ❌", callback_data="close"
+                        "❌ No", callback_data="close"
                     )
                 ]
             ]
