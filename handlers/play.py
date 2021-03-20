@@ -11,11 +11,11 @@ import queues
 
 from config import DURATION_LIMIT
 from helpers.errors import DurationLimitError
-from helpers.filters import command, other_filters
+from helpers.filters import command
 from helpers.wrappers import errors
 
 
-@Client.on_message(command("play") & other_filters)
+@Client.on_message(command(["play", "play@VCPlay_Robot"]))
 @errors
 async def play(_, message: Message):
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
