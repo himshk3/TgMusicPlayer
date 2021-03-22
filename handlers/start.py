@@ -1,10 +1,10 @@
 from pyrogram import Client
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
-from helpers.filters import command, other_filters, other_filters2
+from helpers.filters import command
 
 
-@Client.on_message(command(["start", "start/VCPlay_Robot"]))
+@Client.on_message(command(["start", "start@VCPlay_Robot"]))
 async def start(_, message: Message):
     await message.reply_text(
         f"""<b>👋🏻 Hi {message.from_user.first_name}!</b>
@@ -21,24 +21,6 @@ Use /help for more info""",
                 [
                     InlineKeyboardButton(
                         "Assistant", url="https://t.me/VCPlayAssistant"
-                    )
-                ]
-            ]
-        )
-    )
-
-@Client.on_message(command(["search", "search@VCPlay_Robot"]))
-async def search(_, message: Message):
-    await message.reply_text(
-        "💁🏻‍♂️ Do you want to search for a YouTube video?",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "✅ Yes", switch_inline_query_current_chat=""
-                    ),
-                    InlineKeyboardButton(
-                        "No ❌", callback_data="close"
                     )
                 ]
             ]
