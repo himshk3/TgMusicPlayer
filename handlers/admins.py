@@ -29,7 +29,7 @@ async def pause(_, message: Message):
 @Client.on_message(command("pause") & other_filters2)
 async def pause_(_, message: Message):
     await message.reply_text(
-        "❕ This command works only in groups only")
+        "❕ This command works in groups only")
 
 
 @Client.on_message(command(["resume", "resume@VCPlay_Robot"]) & other_filters)
@@ -49,7 +49,7 @@ async def resume(_, message: Message):
 @Client.on_message(command("resume") & other_filters2)
 async def resume_(_, message: Message):
     await message.reply_text(
-        "❕ This command works only in groups only")
+        "❕ This command works in groups only")
 
 
 @Client.on_message(command(["end", "end@VCPlay_Robot"]) & other_filters)
@@ -70,7 +70,7 @@ async def stop(_, message: Message):
 @Client.on_message(command("end") & other_filters2)
 async def stop_(_, message: Message):
     await message.reply_text(
-        "❕ This command works only in groups only")
+        "❕ This command works in groups only")
 
 
 @Client.on_message(command(["next", "next@VCPlay_Robot"]) & other_filters)
@@ -92,7 +92,7 @@ async def skip(_, message: Message):
 @Client.on_message(command("next") & other_filters2)
 async def skip_(_, message: Message):
     await message.reply_text(
-        "❕ This command works only in groups only")
+        "❕ This command works in groups only")
 
 
 @Client.on_message(command(["admincache", "admincache@VCPlay_Robot"]) & other_filters)
@@ -108,4 +108,4 @@ async def admincache(_, message: Message):
 @Client.on_message(command("admincache") & other_filters2)
 async def admincache_(_, message: Message):
     await message.reply_text(
-        "❕ This command works only in groups only")
+        "❕ This command works in groups only")

@@ -25,4 +25,4 @@ async def search(_, message: Message):
 @Client.on_message(command("search") & other_filters2)
 async def search_(_, message: Message):
     await message.reply_text(
-        "❕ This command works only in groups only")
+        "❕ This command works in groups only")
