@@ -26,26 +26,3 @@ Use /help for more info""",
             ]
         )
     )
-
-@Client.on_message(command(["search", "search@VCPlay_Robot"]) & other_filters)
-async def search(_, message: Message):
-    await message.reply_text(
-        "💁🏻‍♂️ Do you want to search for a YouTube video?",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "✅ Yes", switch_inline_query_current_chat=""
-                    ),
-                    InlineKeyboardButton(
-                        "No ❌", callback_data="close"
-                    )
-                ]
-            ]
-        )
-    )
-
-@Client.on_message(command("search") & other_filters2)
-async def search(_, message: Message):
-    await message.reply_text(
-        "❕ This command works only in groups only")
