@@ -12,7 +12,7 @@ from helpers.filters import command, other_filters, other_filters2
 from helpers.wrappers import errors, admins_only
 
 
-@Client.on_message(command(["pause", "pause@VCPlay_Robot"]) & other_filters)
+@Client.on_message(command(["pause", "pause@Mahi_bhai_7_bot"]) & other_filters)
 @errors
 @admins_only
 async def pause(_, message: Message):
@@ -32,7 +32,7 @@ async def pause_(_, message: Message):
         "❕ This command works in groups only")
 
 
-@Client.on_message(command(["resume", "resume@VCPlay_Robot"]) & other_filters)
+@Client.on_message(command(["resume", "resume@Mahi_bhai_7_bot"]) & other_filters)
 @errors
 @admins_only
 async def resume(_, message: Message):
@@ -52,7 +52,7 @@ async def resume_(_, message: Message):
         "❕ This command works in groups only")
 
 
-@Client.on_message(command(["end", "end@VCPlay_Robot"]) & other_filters)
+@Client.on_message(command(["end", "end@Mahi_bhai_7_bot"]) & other_filters)
 @errors
 @admins_only
 async def stop(_, message: Message):
@@ -73,7 +73,7 @@ async def stop_(_, message: Message):
         "❕ This command works in groups only")
 
 
-@Client.on_message(command(["next", "next@VCPlay_Robot"]) & other_filters)
+@Client.on_message(command(["next", "next@Mahi_bhai_7_bot"]) & other_filters)
 @errors
 @admins_only
 async def skip(_, message: Message):
@@ -95,7 +95,7 @@ async def skip_(_, message: Message):
         "❕ This command works in groups only")
 
 
-@Client.on_message(command(["admincache", "admincache@VCPlay_Robot"]) & other_filters)
+@Client.on_message(command(["admincache", "admincache@Mahi_bhai_7_bot"]) & other_filters)
 @errors
 @admins_only
 async def admincache(_, message: Message):
