@@ -8,7 +8,7 @@ from helpers.filters import command
 async def start(_, message: Message):
     await message.reply_text(
         f"""<b>👋🏻 Hi {message.from_user.first_name}!</b>
-I am @VCPlay_Robot an open-source bot that lets you play music in your Telegram groups.
+I am @Mahi_bhai_7_bot an open-source bot that lets you play music in your Telegram groups.
 Use the buttons below to know more about me.
 Use /help for more info""",
         reply_markup=InlineKeyboardMarkup(
