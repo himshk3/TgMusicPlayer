@@ -15,7 +15,7 @@ from helpers.filters import command
 from helpers.wrappers import errors
 
 
-@Client.on_message(command(["play", "play@VCPlay_Robot"]))
+@Client.on_message(command(["play", "play@Mahi_bhai_7_bot"]))
 @errors
 async def play(_, message: Message):
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
