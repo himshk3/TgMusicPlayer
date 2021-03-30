@@ -4,7 +4,7 @@ from pyrogram import Client
 from helpers.filters import command, other_filters, other_filters2
 
 
-@Client.on_message(command(["ping", "ping@VCPlay_Robot"]) & other_filters)
+@Client.on_message(command(["ping", "ping@Mahi_bhai_7_bot"]) & other_filters)
 async def ping(_, message):
     start_t = time.time()
     rm = await message.reply_text("Pong!")
