@@ -4,7 +4,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from helpers.filters import command
 
 
-@Client.on_message(command(["start", "start@VCPlay_Robot"]))
+@Client.on_message(command(["start", "start@Mahi_bhai_7_bot"]))
 async def start(_, message: Message):
     await message.reply_text(
         f"""<b>👋🏻 Hi {message.from_user.first_name}!</b>
@@ -15,12 +15,12 @@ Use /help for more info""",
             [
                 [
                     InlineKeyboardButton(
-                        "⚡️Owner⚡️", url="https://t.me/DetectiveVI"
+                        "⚡️Owner⚡️", url="https://t.me/Mahi_bhai_7"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "Assistant", url="https://t.me/VCPlayAssistant"
+                        "Assistant", url="https://t.me/Mahi_bhai_007"
                     )
                 ]
             ]
