@@ -1,9 +1,9 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
-PM_HELP_TEXT = """Add @VCPlayAssistant and @VCPlay_Robot to your group\n
+PM_HELP_TEXT = """Add @Mahi_bhai_007 and @Mahi_bhai_7_bot to your group\n
 **Usage:**
-Inline - `@VCPlay_Robot Yt video name`
+Inline - `@Mahi_bhai_7_bot Yt video name`
 Normal - `/play Yt link`\n
 **Other Commands:**
 /start : `Just for fun XD`
@@ -23,11 +23,11 @@ async def help(client, message):
      reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('👑Owner👑', url='https://t.me/DetectiveVI')
+                    InlineKeyboardButton('👑Owner👑', url='https://t.me/Mahi_bhai_7')
                 ],
                 [
 
-                    InlineKeyboardButton('🎸Assistant🎸', url='https://t.me/VCPlayAssistant')
+                    InlineKeyboardButton('🎸Assistant🎸', url='https://t.me/Mahi_bhai_007')
                 ]
             ]
         )
